@@ -21,10 +21,10 @@ module Bloomy
 
     def send_request(request)
       @socket.write(request.encode)
-      wait_for_response
     end
 
     def wait_for_response
+     p @socket.read
     end
   end
 end

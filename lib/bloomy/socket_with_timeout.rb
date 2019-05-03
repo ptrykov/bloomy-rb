@@ -37,12 +37,12 @@ module Bloomy
       end
     end
 
-    def read(num_bytes)
+    def read
       unless IO.select([@socket], nil, nil, @timeout)
         raise Errno::ETIMEDOUT
       end
 
-      @socket.read(num_bytes)
+      @socket.gets
     rescue IO::EAGAINWaitReadable
       retry
     end
